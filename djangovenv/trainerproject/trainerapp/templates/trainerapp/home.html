@@ -1,0 +1,25 @@
+{% extends 'trainerapp/base.html' %}
+
+{% block linkbar %}
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+        <a class="nav-link" href="/trainer/login/">Login <span class="sr-only">(current)</span></a>
+        </li>
+    <li class="nav-item" id="signUp">
+        <a class="nav-link" href="/trainer/signup/">Sign Up</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block content1 %}
+<h2>Hello!</h2><br>
+<h2>Welcome to Lorem School of informatics!</h2> 
+<br><br>
+{% endblock %}
+
+{% block content %}
+<span id="homespan">
+<p><a href="/trainer/login/" style="color:rgb(62, 184, 112);"> Login</a>to get access to the site's information.</p>
+<p>Don't have an account? You can sign up <a href="/trainer/signup/" style="color:rgb(62, 184, 112);">here</a></p></span>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'trainerapp/base.html' %}
+
+{% block title %}Trainer{% endblock %}
+
+{% block content1 %}
+    <a href="/trainer/read/"><h3> &#128281; See all trainers</h3></a> 
+{% endblock %}
+
+{% block content %}
+    
+    <form method="post">
+        {% csrf_token %}
+        <div class="container">
+    
+            <div class="form-group">
+                <label for="firstname"><strong>Enter first name</strong>:</label>
+                <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Antony" autofocus>           
+            </div>
+           
+            <div class="form-group">
+                <label for="lastname"><strong>Enter last name</strong>:</label>
+                <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Hopkins">           
+            </div>
+            
+            <div class="form-group">
+                <label for="subject"><strong>Enter subject</strong>:</label>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="C#">           
+            </div>
+        
+        {% if empty_firstname %}
+            <div>{{ empty_firstname }}</div> 
+        {% elif invalid_firstname %}
+            <div>{{ invalid_firstname }}</div>
+        {% elif empty_lastname %}
+            <div>{{ empty_lastname }}</div> 
+        {% elif invalid_lastname %}
+            <div>{{ invalid_lastname }}</div>
+        {% elif empty_subject %}
+            <div>{{ empty_subject }}</div> 
+        {% elif invalid_subject %}
+            <div>{{ invalid_subject }}</div>
+        {% elif already_exists %}
+            <div>{{ already_exists }}</div>
+        {% endif %}
+        <br>
+        <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </form>
+{% endblock %}

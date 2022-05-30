@@ -1,0 +1,58 @@
+{% extends 'trainerapp/base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+{% block linkbar %}
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="/trainer/login/">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/trainer/login/">Logout</a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+{% block content1 %}
+    <h2>Sign Up</h2>
+{% endblock %}
+
+{% block content %}
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="container form-group">
+           {{ form.as_p }}
+            {% comment %} <p>  
+            <label for="id_username"><strong>Username:</strong></label>
+            <input class="form-control" type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus required id="id_username">  
+            <span class="form-text text-muted">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>   
+            </p>
+            <p>
+                <label for="id_password1"><strong>Password:</strong></label>
+                <input class="form-control" type="password" name="password1" autocomplete="new-password" required id="id_password1">
+                <span class="form-text text-muted"></span>
+            </p>
+            <ul class="form-text text-muted">
+                <li>Your password cant't be too similar to your other personal information.</li>
+                <li>Your password must contain at least 8 characters.</li>
+                <li>Your password can't be a commonly used password.</li>
+                <li>Your password can't be totally numeric.</li>
+            </ul>
+            <p></p>
+            <p>
+                <label for="id_password2"><strong>Password confirmation:</strong></label>
+                <input class="form-control" type="password" name="password2" autocomplete="new-password" required id="id_password2">
+                <span class="form-text text-muted">Enter tha same password as before, for verification.</span>
+            </p> {% endcomment %}
+            <input type="checkbox" id="make_moderator" name="make_moderator" value="moderator">
+            <label for="make_moderator">I am a <strong>moderator</strong></label><br>
+            <button type="submit" class="btn btn-success"> Sign up </button> 
+        </div>
+    </form>
+    
+{% endblock %}
+
+
+    

@@ -1,0 +1,49 @@
+{% extends 'trainerapp/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block linkbar %}
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="/trainer/signup/">Sign up<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/trainer/logout/">Logout</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content1 %}
+    <h2>Login</h2>
+{% endblock %}
+
+{% block content %}
+    <form method='post'>
+        {% csrf_token %}
+        <div class="container">
+    
+            <div class="form-group">
+                <label for="username"><strong>Username</strong>:</label>
+                <input type="text" class="form-control" name="username" id="username" autofocus required>           
+            </div>
+            <div class="form-group">
+                <label for="password"><strong>Password</strong></label>
+                <input type="password" class="form-control" name="password" id="password" aria-describedby="passwordHelp" required>
+                <span id="passwordHelp" class="form-text text-muted">For security reasons we advise you to use both alphabetical and numerical characters.</span>
+            </div>
+            
+    
+            
+            {% if empty_usesrname %}
+                <div>{{ empty_usesrname }}</div>
+            {% elif empty_password %}
+                <div>{{ empty_password }}</div>
+            {% elif invalid %}
+                <div>{{ invalid }}</div>
+            {% endif %}
+        <br>
+        <button type="submit" class="btn btn-success">Login</button>
+            
+        </div>
+    </form>
+{% endblock %}

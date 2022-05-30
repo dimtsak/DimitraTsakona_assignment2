@@ -1,0 +1,23 @@
+{% extends 'trainerapp/base.html' %}
+
+{% block title %}Delete Trainer{% endblock %}
+{% block content1 %}
+    <a href="/trainer/read/"><h3>All trainers</h3></a>
+{% endblock %}
+
+{% block content %}
+    <form method='POST'>
+        {% csrf_token %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1><strong>Are you sure that you want to delete the selected trainer?</strong></h1><br>
+                </div>
+                <div class="col-md-4">
+                    <input class="btn btn-danger" type="submit" value="Yes"/>
+                    <a href="/trainer/read"><div class="btn btn-success">Cancel</div></a>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

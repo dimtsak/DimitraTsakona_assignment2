@@ -1,0 +1,103 @@
+<!DOCTYPE html>     
+<html lang='eng'>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>{% block title %}Trainers{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'trainerapp/css/main.css' %}">
+        <link rel="icon" type="image/png" href="{% static 'trainerapp/images/icon.png' %}">
+    </head>
+
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+            <div class="container">
+                <a class="navbar-brand" href="#">Lorem School of Informatics</a><img width="40px" height="40px" src="{% static 'trainerapp/images/icon.png' %}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    {% block linkbar %}
+                    {% if user.is_active %}
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item nav-link active">User: <strong>{{ request.user.username }}</strong></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/trainer/logout/">Logout</a>
+                        </li>
+                    </ul>
+                    {% else %}
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/trainer/login/">Login <span class="sr-only">(current)</span></a>
+                         </li>
+                        <li class="nav-item" id="signUp">
+                            <a class="nav-link" href="/trainer/signup/">Sign Up</a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                    {% endblock %}
+               
+                </div>
+            </div>
+          </nav>
+          
+
+          <div class="jumbotron bgheader no-radius">
+            <div class="container">
+                <div class="row headerImageFont">
+                  <div class="col-md-12" id="jumbo">
+                    {% block content1 %}
+                    <a href="/trainer/create/">Add new trainer</a>
+                    {% endblock %}
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+        <div id="content">
+            <div class="it1"></div>
+            <div class="it2">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="it3"></div>
+        </div>
+        <hr>
+
+        <footer class="bg-dark text-center text-white">
+            <!-- Grid container -->
+            <div class="container p-4">
+              <!-- Section: Social media -->
+              <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+          
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+          
+                <!-- Linkedin -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+          
+                <!-- Github -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </section>
+            </div>
+             <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                &copy; Copyright 2022
+            </div>
+        
+        </footer>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
